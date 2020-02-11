@@ -30,7 +30,6 @@ void SYSCTRL_init() {
     uint64_t reg = *(uint64_t *) OTP4_ADDR;
     reg &= 0x00001FC000000000;
     reg >>= 38;
-    reg = 0x3F;
     
     // configure and enable OSC32K
     SYSCTRL_REGS->SYSCTRL_OSC32K =

@@ -12,11 +12,7 @@
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceRootList>
-                <sourceRootElem>my_init</sourceRootElem>
-                <sourceRootElem>utils</sourceRootElem>
-                <sourceRootElem>../../analysis/samc21n_tc_io_err/my_init</sourceRootElem>
-            </sourceRootList>
+            <sourceRootList/>
             <confList>
                 <confElem>
                     <name>default</name>

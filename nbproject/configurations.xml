@@ -11,7 +11,6 @@
         <itemPath>my_init/port.h</itemPath>
         <itemPath>my_init/sercom.h</itemPath>
         <itemPath>my_init/tc.h</itemPath>
-        <itemPath>../../analysis/samc21n_tc_io_err/my_init/dsu.h</itemPath>
         <itemPath>my_init/sysctrl.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="utils" projectFiles="true">
@@ -33,7 +32,6 @@
         <itemPath>my_init/port.c</itemPath>
         <itemPath>my_init/sercom.c</itemPath>
         <itemPath>my_init/tc.c</itemPath>
-        <itemPath>../../analysis/samc21n_tc_io_err/my_init/dsu.c</itemPath>
         <itemPath>my_init/sysctrl.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="utils" projectFiles="true">
@@ -48,11 +46,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>my_init</Elem>
-    <Elem>utils</Elem>
-    <Elem>../../analysis/samc21n_tc_io_err/my_init</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -67,8 +60,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAMD21_DFP" vendor="Microchip" version="3.0.23"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAMD21_DFP" vendor="Microchip" version="3.1.71"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -307,14 +300,84 @@
         <property key="voltagevalue" value="5.0"/>
       </ICD4Tool>
       <item path="my_init/gclk.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="my_init/port.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="my_init/sercom.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="my_init/tc.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="utils/print.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
     </conf>
   </confs>
