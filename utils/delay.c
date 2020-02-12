@@ -23,7 +23,7 @@
  */
 // DOM-IGNORE-END
 
-#include <sam.h>
+#include <xc.h>
 #include "delay.h"
 
 static inline uint32_t _get_cycles_for_ms_internal(const uint16_t ms, const uint32_t freq, const uint8_t power);

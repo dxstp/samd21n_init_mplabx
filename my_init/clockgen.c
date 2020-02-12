@@ -23,7 +23,7 @@
  */
 // DOM-IGNORE-END
 
-#include <samd21j18a.h>
+#include <xc.h>
 #include "clockgen.h"
 
 void CLOCKGEN_init() {
@@ -41,10 +41,12 @@ void CLOCKGEN_init() {
     GCLK_REGS->GCLK_GENCTRL =
         GCLK_GENCTRL_ID(1) |
         GCLK_GENCTRL_SRC_XOSC32K |
+        GCLK_GENCTRL_OE(1) |
         GCLK_GENCTRL_GENEN(1);
     while(GCLK_REGS->GCLK_STATUS & GCLK_STATUS_SYNCBUSY_Msk);
     
     // set GCLK1 as reference clock for DFLL
+    // don't use the internal OSC32, you'll provoke an OOB error (17.6.7.1.5)
     GCLK_REGS->GCLK_CLKCTRL =
         GCLK_CLKCTRL_GEN(GCLK_CLKCTRL_GEN_GCLK1_Val) |
         GCLK_CLKCTRL_ID(GCLK_CLKCTRL_ID_DFLL48_Val) |

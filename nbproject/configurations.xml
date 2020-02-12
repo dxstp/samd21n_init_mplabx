@@ -318,7 +318,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="my_init/sercom.c" ex="true" overriding="false">
+      <item path="my_init/sercom.c" ex="false" overriding="false">
         <C32>
         </C32>
         <C32-AR>
@@ -350,7 +350,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="utils/print.c" ex="true" overriding="false">
+      <item path="utils/print.c" ex="false" overriding="false">
         <C32>
         </C32>
         <C32-AR>

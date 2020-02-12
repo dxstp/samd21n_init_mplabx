@@ -23,7 +23,7 @@
  */
 // DOM-IGNORE-END
 
-#include <sam.h>
+#include <xc.h>
 #include <stdio.h>
 #include "my_init/sysctrl.h"
 #include "my_init/nvmctrl.h"
@@ -41,17 +41,18 @@ int main(void) {
     NVMCTRL_init();
 	SYSCTRL_init();
     CLOCKGEN_init();
-//	NVIC_init();
 	PORT_init();
+    //	NVIC_init();
 	//TC_init();
-	//SERCOM3_init();
-	//print_init();
+	SERCOM3_init();
+	print_init();
 	
-//	printf("Hello D21 World!\r\n");
+
 	
     while (1) {	
 		
         PORT_REGS->GROUP[1].PORT_OUTTGL = (1 << 30);
+        printf("Hello D21 World!\r\n");
 		delay_ms(1000);
         
     }

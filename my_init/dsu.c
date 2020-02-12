@@ -1,6 +1,3 @@
-
-#include <proc/SAMC21N/samc21n18a.h>
-
 // DOM-IGNORE-BEGIN
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. 

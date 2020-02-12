@@ -52,7 +52,7 @@ int _read(int file, char *ptr, int len) {
 		return -1;
 	}
 
-	n = SERCOM4_read((char *)ptr, len);
+	n = SERCOM3_read((char *)ptr, len);
 	if (n < 0) {
 		return -1;
 	}
@@ -67,7 +67,7 @@ int _write(int file, char *ptr, int len) {
 		return -1;
 	}
 
-	n = SERCOM4_write((const char *)ptr, len);
+	n = SERCOM3_write((const char *)ptr, len);
 	if (n < 0) {
 		return -1;
 	}
