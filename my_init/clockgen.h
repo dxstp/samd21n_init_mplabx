@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. 
     
@@ -23,9 +22,10 @@
  */
 // DOM-IGNORE-END
 
-#include <xc.h>
-#include "nvic.h"
+#ifndef CLOCKGEN_H
+#define	CLOCKGEN_H
 
-void NVIC_init(void) {
+void CLOCKGEN_init(void);
 
-}
+#endif	/* CLOCKGEN_H */
+

@@ -25,29 +25,29 @@
 
 #include <sam.h>
 #include <stdio.h>
-#include "my_init/nvmctrl.h"
 #include "my_init/sysctrl.h"
+#include "my_init/nvmctrl.h"
+#include "my_init/clockgen.h"
 #include "my_init/nvic.h"
-#include "my_init/gclk.h"
 #include "my_init/port.h"
 #include "my_init/tc.h"
 #include "my_init/sercom.h"
 #include "my_init/dsu.h"
 #include "utils/print.h"
 #include "utils/delay.h"
+#include "my_init/sysctrl.h"
 
 int main(void) {
-	NVMCTRL_init();
-    SYSCTRL_init();
-	NVIC_init();
-	//GCLK_init();
-	//PORT_init();
+    NVMCTRL_init();
+	SYSCTRL_init();
+    CLOCKGEN_init();
+//	NVIC_init();
+	PORT_init();
 	//TC_init();
 	//SERCOM3_init();
 	//print_init();
-    DSU_init();
 	
-	printf("Hello D21 World!\r\n");
+//	printf("Hello D21 World!\r\n");
 	
     while (1) {	
 		

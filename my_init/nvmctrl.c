@@ -27,7 +27,7 @@
 #include "nvmctrl.h"
 
 void NVMCTRL_init(void) {
-	// see table Table 37-40 on page 1007 of datasheet for required wait states.
-	// set wait states to 3 for maximum clock (48 MHz)
-	NVMCTRL_REGS->NVMCTRL_CTRLB |= NVMCTRL_CTRLB_RWS(3); 
+	// see table Table 37-42 on page 898 of datasheet for required wait states.
+	// set wait states to 1 for maximum clock (48 MHz) and VDD >= 2.7V
+	NVMCTRL_REGS->NVMCTRL_CTRLB |= NVMCTRL_CTRLB_RWS(1); 
 }

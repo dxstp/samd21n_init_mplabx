@@ -24,39 +24,45 @@
 // DOM-IGNORE-END
 
 #include <xc.h>
+#include "sysctrl.h"
 
 void SYSCTRL_init() {
-    // load calibration for OSC32K from Calibration Area
+    // OSC8M is running by default at 1 MHz, clock source for CPU after POR
+    // OSCULP32K is running by default at 32 kHz
+    
+    // configure XOSC32K to work with an external crystal oszillator
+    SYSCTRL_REGS->SYSCTRL_XOSC32K =
+        SYSCTRL_XOSC32K_STARTUP(SYSCTRL_XOSC32K_STARTUP_CYCLE65536_Val) |
+        SYSCTRL_XOSC32K_ONDEMAND(0) |
+        SYSCTRL_XOSC32K_RUNSTDBY(0) |
+        SYSCTRL_XOSC32K_AAMPEN(0) |
+        SYSCTRL_XOSC32K_EN32K(1) |
+        SYSCTRL_XOSC32K_XTALEN(1);
+
+    // enable XOSC32K
+    SYSCTRL_REGS->SYSCTRL_XOSC32K |= SYSCTRL_XOSC32K_ENABLE(1);
+    
+    // load calibration for internal OSC32K from calibration memory
     uint64_t reg = *(uint64_t *) OTP4_ADDR;
     reg &= 0x00001FC000000000;
     reg >>= 38;
     
-    // configure and enable OSC32K
+    // configure and enable internal OSC32K
     SYSCTRL_REGS->SYSCTRL_OSC32K =
-            SYSCTRL_OSC32K_CALIB(reg) |
-            SYSCTRL_OSC32K_STARTUP(SYSCTRL_OSC32K_STARTUP_CYCLE3_Val) |
-            SYSCTRL_OSC32K_ONDEMAND(0) |
-            SYSCTRL_OSC32K_RUNSTDBY(0) |
-            SYSCTRL_OSC32K_EN32K(1) |
-            SYSCTRL_OSC32K_ENABLE(1);
+        SYSCTRL_OSC32K_CALIB(reg) |
+        SYSCTRL_OSC32K_STARTUP(SYSCTRL_OSC32K_STARTUP_CYCLE3_Val) |
+        SYSCTRL_OSC32K_ONDEMAND(0) |
+        SYSCTRL_OSC32K_RUNSTDBY(0) |
+        SYSCTRL_OSC32K_EN32K(1);
+    
+    // enable OSC32K
+     SYSCTRL_REGS->SYSCTRL_OSC32K |= SYSCTRL_OSC32K_ENABLE(1);
 
+    
+     
     // wait until OSC32K is ready
-    while(!(SYSCTRL_REGS->SYSCTRL_PCLKSR & SYSCTRL_PCLKSR_OSC32KRDY_Msk));
+    while((SYSCTRL_REGS->SYSCTRL_PCLKSR & SYSCTRL_PCLKSR_OSC32KRDY_Msk) == 0);
     
-    GCLK_REGS->GCLK_GENCTRL =
-            GCLK_GENCTRL_OE(1) |
-            GCLK_GENCTRL_IDC(1) |
-            GCLK_GENCTRL_GENEN(1) |
-            GCLK_GENCTRL_SRC(GCLK_GENCTRL_SRC_OSC32K_Val) |
-            GCLK_GENCTRL_ID(4);
-    
-    while(GCLK_REGS->GCLK_STATUS & GCLK_STATUS_SYNCBUSY_Msk);
-    
-    PORT_REGS->GROUP[0].PORT_WRCONFIG = 
-            PORT_WRCONFIG_HWSEL(0) |
-            PORT_WRCONFIG_WRPINCFG(1) |
-            PORT_WRCONFIG_WRPMUX(1) |
-            PORT_WRCONFIG_PMUX(PORT_PMUX_PMUXE_H_Val) |
-            PORT_WRCONFIG_PMUXEN(1) |
-            PORT_WRCONFIG_PINMASK(1 << 10);
+    // wait for XOSC32K to stabilize
+    while((SYSCTRL_REGS->SYSCTRL_PCLKSR & SYSCTRL_PCLKSR_XOSC32KRDY_Msk) == 0);
 }
