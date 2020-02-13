@@ -5,13 +5,12 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="my_init" projectFiles="true">
-        <itemPath>my_init/nvic.h</itemPath>
         <itemPath>my_init/nvmctrl.h</itemPath>
         <itemPath>my_init/port.h</itemPath>
         <itemPath>my_init/sercom.h</itemPath>
-        <itemPath>my_init/tc.h</itemPath>
         <itemPath>my_init/clockgen.h</itemPath>
         <itemPath>my_init/sysctrl.h</itemPath>
+        <itemPath>my_init/dsu.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="utils" projectFiles="true">
         <itemPath>utils/print.h</itemPath>
@@ -26,13 +25,12 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="my_init" projectFiles="true">
-        <itemPath>my_init/nvic.c</itemPath>
         <itemPath>my_init/nvmctrl.c</itemPath>
         <itemPath>my_init/port.c</itemPath>
         <itemPath>my_init/sercom.c</itemPath>
-        <itemPath>my_init/tc.c</itemPath>
         <itemPath>my_init/clockgen.c</itemPath>
         <itemPath>my_init/sysctrl.c</itemPath>
+        <itemPath>my_init/dsu.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="utils" projectFiles="true">
         <itemPath>utils/print.c</itemPath>
@@ -319,22 +317,6 @@
         </C32Global>
       </item>
       <item path="my_init/sercom.c" ex="false" overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-CO>
-        </C32-CO>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="my_init/tc.c" ex="true" overriding="false">
         <C32>
         </C32>
         <C32-AR>

@@ -37,6 +37,11 @@ void CLOCKGEN_init() {
         GCLK_GENDIV_DIV(1) |
         GCLK_GENDIV_ID(1);
     
+    // set GCLK3 division factor
+    GCLK_REGS->GCLK_GENDIV =
+        GCLK_GENDIV_DIV(10) |
+        GCLK_GENDIV_ID(3);
+    
     // select XOSC32K as generator for GCLK1
     GCLK_REGS->GCLK_GENCTRL =
         GCLK_GENCTRL_ID(1) |
@@ -87,6 +92,14 @@ void CLOCKGEN_init() {
     GCLK_REGS->GCLK_GENCTRL =
         GCLK_GENCTRL_ID(0) |
         GCLK_GENCTRL_SRC_DFLL48M |
+        GCLK_GENCTRL_GENEN(1);
+    while(GCLK_REGS->GCLK_STATUS & GCLK_STATUS_SYNCBUSY_Msk);
+    
+    // select DFLL as generator for GCLK3 (divided by 10)
+    GCLK_REGS->GCLK_GENCTRL =
+        GCLK_GENCTRL_ID(3) |
+        GCLK_GENCTRL_SRC_DFLL48M |
+        GCLK_GENCTRL_OE(1) |
         GCLK_GENCTRL_GENEN(1);
     while(GCLK_REGS->GCLK_STATUS & GCLK_STATUS_SYNCBUSY_Msk);
 }

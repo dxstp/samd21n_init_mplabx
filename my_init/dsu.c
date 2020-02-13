@@ -44,10 +44,10 @@ dsu_did_t did_info;
 
 void DSU_init(void) {
     did_info.reg = *(uint32_t *) (DSU_BASE_ADDRESS + DSU_DID_REG_OFST);
-    if(did_info.devsel == 0x20) {
-        printf("I am an ATSAMC21N18A.\n");
+    if(did_info.devsel == 0x00) {
+        printf("I am an ATSAMD21J18A.\n");
     }
-    if(did_info.revision == 0x04) {
-        printf("My die revision is E.\n");
+    if(did_info.revision == 0x03) {
+        printf("My die revision is D.\n");
     }
 }

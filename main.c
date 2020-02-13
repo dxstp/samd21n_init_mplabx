@@ -23,14 +23,12 @@
  */
 // DOM-IGNORE-END
 
-#include <xc.h>
+#include <samd21j18a.h>
 #include <stdio.h>
 #include "my_init/sysctrl.h"
 #include "my_init/nvmctrl.h"
 #include "my_init/clockgen.h"
-#include "my_init/nvic.h"
 #include "my_init/port.h"
-#include "my_init/tc.h"
 #include "my_init/sercom.h"
 #include "my_init/dsu.h"
 #include "utils/print.h"
@@ -42,24 +40,18 @@ int main(void) {
 	SYSCTRL_init();
     CLOCKGEN_init();
 	PORT_init();
-    //	NVIC_init();
-	//TC_init();
 	SERCOM3_init();
 	print_init();
+    DSU_init();
 	
-
+    printf("Hello D21 World!\r\n");
 	
     while (1) {	
 		
         PORT_REGS->GROUP[1].PORT_OUTTGL = (1 << 30);
-        printf("Hello D21 World!\r\n");
 		delay_ms(1000);
         
     }
-}
-
-void SYSTEM_Handler() {
-	while(1);
 }
 
 void HardFault_Handler() {
