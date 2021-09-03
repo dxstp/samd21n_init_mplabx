@@ -11,6 +11,7 @@
         <itemPath>my_init/clockgen.h</itemPath>
         <itemPath>my_init/sysctrl.h</itemPath>
         <itemPath>my_init/dsu.h</itemPath>
+        <itemPath>my_init/adc.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="utils" projectFiles="true">
         <itemPath>utils/print.h</itemPath>
@@ -31,6 +32,7 @@
         <itemPath>my_init/clockgen.c</itemPath>
         <itemPath>my_init/sysctrl.c</itemPath>
         <itemPath>my_init/dsu.c</itemPath>
+        <itemPath>my_init/adc.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="utils" projectFiles="true">
         <itemPath>utils/print.c</itemPath>

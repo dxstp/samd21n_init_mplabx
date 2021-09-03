@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+    (c) 2021 Microchip Technology Inc. and its subsidiaries. 
     
     Subject to your compliance with these terms, you may use Microchip software and any 
     derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
@@ -22,40 +22,10 @@
     SOFTWARE.
  */
 // DOM-IGNORE-END
+#ifndef ADC_H
+#define	ADC_H
 
-#include <samd21j18a.h>
-#include <stdio.h>
-#include "my_init/sysctrl.h"
-#include "my_init/nvmctrl.h"
-#include "my_init/clockgen.h"
-#include "my_init/port.h"
-#include "my_init/sercom.h"
-#include "my_init/dsu.h"
-#include "utils/print.h"
-#include "utils/delay.h"
-#include "my_init/sysctrl.h"
-#include "my_init/adc.h"
+void ADC_init(void);
 
-int main(void) {
-    NVMCTRL_init();
-	SYSCTRL_init();
-    CLOCKGEN_init();
-	PORT_init();
-	SERCOM3_init();
-	print_init();
-    DSU_init();
-    ADC_init();
-	
-    printf("Hello D21 World!\r\n");
-	
-    while (1) {	
-		
-        PORT_REGS->GROUP[1].PORT_OUTTGL = (1 << 30);
-		delay_ms(1000);
-        
-    }
-}
+#endif	/* ADC_H */
 
-void HardFault_Handler() {
-    while(1);
-}
